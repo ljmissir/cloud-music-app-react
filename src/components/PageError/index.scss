@@ -1,0 +1,26 @@
+
+.page-error{
+    position: absolute;
+    top:30%;
+    left:0;
+    bottom: 0;
+    right: 0;
+    margin:auto;
+    text-align: center;
+    img{
+        width:60px;
+        height:60px;
+        margin-bottom: 20px;
+    }
+    .error-text{
+        padding:0 20%;
+        font-size:15px;
+        a{
+            color:blueviolet;
+            text-decoration: underline;
+        }
+        span{
+            color:red;
+        }
+    }
+}
