@@ -30,9 +30,10 @@ export default function Singer(props) {
     });
   };
 
-  useEffect(async () => {
-    const result = await request.querySingerList({ type: -1, limit: 50 });
-    setSingerList(result.artists);
+  useEffect(() => {
+    request.querySingerList({ type: -1, limit: 50 }).then((res) => {
+      setSingerList(res.artists);
+    });
   }, []);
 
   return (
