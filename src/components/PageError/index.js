@@ -17,7 +17,7 @@ class PageError extends Component {
         <img src={errorIcon} alt="error" />
         <p className="error-text">
           您的设备版本过低，请将当前页面截图后尽快联系客服
-          <a href="tel:0755-868785884">0755-868785884</a>，详情：
+          <a href="tel:18676388628">18676388628</a>，详情：
           <span>{error}</span>
         </p>
       </div>

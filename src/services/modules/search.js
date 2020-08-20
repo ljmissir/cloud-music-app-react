@@ -15,7 +15,10 @@ export const querySearchSuggest = (params) => {
   return get("/search/suggest", params);
 };
 
-// 搜索匹配，必选参数：keywords
-export const searchMultimatch = (params) => {
-  return get("/search/multimatch", params);
+// 根据关键字查询搜索结果
+/*Type: 搜索类型；默认为 1 即单曲 , 取值意义 : 1: 单曲, 10: 专辑, 100: 歌手, 1000:
+歌单, 1002: 用户, 1004: MV, 1006: 歌词, 1009: 电台, 1014: 视频, 1018:综合
+*/
+export const querySearchResult = (params) => {
+  return get("/search", params);
 };

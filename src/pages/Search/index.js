@@ -6,11 +6,25 @@ import "./index.scss";
 export default function Search() {
   const [hots, setHots] = useState([]);
 
+  const toSearch = (item) => {
+    request
+      .querySearchResult({ keywords: item.searchWord, type: 1018 })
+      .then((res) => {
+        console.log(res, 123);
+      });
+  };
+
   // 热搜榜
   const renderHots = (hots) => {
     return hots.map((item, index) => {
       return (
-        <div className="hots-item" key={item.content}>
+        <div
+          className="hots-item"
+          key={item.content}
+          onClick={() => {
+            toSearch(item);
+          }}
+        >
           <span className={`num ${index < 4 ? "hot" : ""}`}>{index + 1}</span>
           <div className="info">
             <p className="search-word">

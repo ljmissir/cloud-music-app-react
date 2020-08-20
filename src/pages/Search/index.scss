@@ -28,13 +28,17 @@
           display: flex;
           align-items: center;
           img {
-            width: 40px;
+            width: 32px;
             margin-left: 10px;
           }
         }
         .content {
           font-size: 24px;
-          color: #666;
+          color: rgb(154, 154, 154);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 310px;
         }
       }
     }

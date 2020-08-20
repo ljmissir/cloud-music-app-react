@@ -1,4 +1,7 @@
 .find-wrapper {
+  .am-carousel-wrap-dot-active > span {
+    background: red;
+  }
   // height: 260px;
   .tab-list {
     margin-top: 60px;
