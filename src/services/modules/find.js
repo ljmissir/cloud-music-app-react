@@ -25,7 +25,7 @@ export const queryTopList = (params) => {
   return get("/toplist", params);
 };
 
-// 首页原型图标数据
+// 首页圆形图标数据
 export const queryHomePageBall = (params) => {
   return get("/homepage/dragon/ball", params);
 };

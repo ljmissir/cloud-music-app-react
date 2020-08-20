@@ -10,6 +10,7 @@ function App() {
           <Route path="/" exact when="always" component={Routes.Find} />
           <Route path="/find" exact component={Routes.Find} />
           <Route path="/login" exact component={Routes.Login} />
+          <Route path="/search" exact component={Routes.Search} />
         </Switch>
       </Router>
     </div>

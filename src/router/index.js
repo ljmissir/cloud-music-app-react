@@ -14,3 +14,8 @@ export const Login = loadable(() => import("../pages/Login"), {
   LoadingComponent: Loading,
   ErrorComponent: ErrorDisplay,
 });
+
+export const Search = loadable(() => import("../pages/Search"), {
+  LoadingComponent: Loading,
+  ErrorComponent: ErrorDisplay,
+});

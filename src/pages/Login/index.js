@@ -8,12 +8,13 @@ const Cookies = require("js-cookie");
 
 function Login(props) {
   const { getFieldDecorator, getFieldsValue } = props.form;
-  const { setUser, history } = props;
+  const { dispatch, history } = props;
+
   const Login = () => {
     const params = getFieldsValue();
     request.login(params).then((res) => {
       Cookies.set("cookie", res.cookie);
-      setUser(res);
+      dispatch({ type: "SET_USER", user: res });
       history.push("/find");
     });
   };
@@ -35,6 +36,4 @@ function Login(props) {
 
 const LoginForm = createForm()(Login);
 
-export default connect(({ user }) => ({ user }), {
-  setUser: () => ({ type: "SET_USER" }),
-})(LoginForm);
+export default connect(({ user }) => ({ user }))(LoginForm);
