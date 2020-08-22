@@ -40,6 +40,7 @@ function Songs(props) {
       return (
         <List.Item
           className="singer-item"
+          arrow="horizontal"
           key={song.id}
           onClick={() => {
             querySong(song);
