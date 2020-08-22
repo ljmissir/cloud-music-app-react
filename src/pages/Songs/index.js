@@ -1,26 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import request from "../../services";
-import { List } from "antd-mobile";
+import { List, PullToRefresh, Toast } from "antd-mobile";
 import * as utils from "../../utils/utils";
 import "./index.scss";
 
 function Songs(props) {
   let { search } = props.location;
   const [songList, setSongList] = useState([]);
-  const [songUrl, setSongUrl] = useState("");
+  const [offset, setOffset] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
   const { id } = utils.getUrlParams(search);
   const { dispatch } = props;
 
+  // 查询歌曲url
   const querySong = async (song) => {
+    if (!song) return;
     const { id } = song;
     const result = await request.querySongUrl({ id });
-    // console.log(result);
-    setSongUrl(result.data[0].url);
-    dispatch({ type: "SET_CURSONG_URL", songUrl });
-    console.log(props, 123321);
+    dispatch({ type: "SET_CURSONG_URL", songUrl: result.data[0].url });
+    dispatch({ type: "SET_PLAY_LIST", playList: songList });
   };
 
+  // 根据歌手id查询歌手歌曲
+  const querySongList = async () => {
+    if (!hasMore) {
+      Toast.info("没有更多了");
+      return;
+    }
+    setOffset(offset + 25);
+    const result = await request.querySongBySingerId({ id, limit: 25, offset });
+    setHasMore(result.more);
+    setSongList([...songList, ...result.songs]);
+  };
+
+  // 渲染歌曲
   const renderSongsList = (songList) => {
     return songList.map((song) => {
       return (
@@ -45,19 +59,16 @@ function Songs(props) {
   };
 
   useEffect(() => {
-    async function querySongBySingerId() {
-      const result = await request.querySongBySingerId({ id, limit: 50 });
-      setSongList(result.songs);
-    }
-    querySongBySingerId();
+    querySongList();
   }, []);
 
   return (
     <div className="songs-wrapper">
-      {/* <audio style={{ display: "none" }} src={songUrl} autoPlay></audio> */}
-      <List className="song-list">
-        {!!songList.length && renderSongsList(songList)}
-      </List>
+      <PullToRefresh direction="up" onRefresh={querySongList}>
+        <List className="song-list">
+          {!!songList.length && renderSongsList(songList)}
+        </List>
+      </PullToRefresh>
     </div>
   );
 }

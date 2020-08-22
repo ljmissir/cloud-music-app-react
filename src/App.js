@@ -3,11 +3,7 @@ import { connect } from "react-redux";
 import CloudRoute from "./router";
 
 function App(props) {
-  console.log(props, 12);
-  const [songUrl] = useState(props.song.songUrl);
-  useEffect(() => {
-    console.log(props.song, 888);
-  });
+  const { songUrl } = props.song;
   return (
     <div className="App">
       <audio style={{ display: "none" }} src={songUrl} autoPlay></audio>

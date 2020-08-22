@@ -1,15 +1,34 @@
 import React, { useState, useEffect } from "react";
 import request from "../../services";
-import { List } from "antd-mobile";
+import { List, PullToRefresh, Toast } from "antd-mobile";
 import "./index.scss";
 
 export default function Singer(props) {
   const { history } = props;
   const [singerList, setSingerList] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
 
   const querySongs = (singer) => {
     const { id } = singer;
     history.push(`/songs?id=${id}`);
+  };
+
+  const querySingerList = async () => {
+    if (!hasMore) {
+      Toast.info("没有更多了");
+      return;
+    }
+    setOffset(offset + 25);
+    const result = await request.querySingerList({
+      type: -1,
+      limit: 20,
+      offset,
+    });
+    if (!!result.artists.length) {
+      setSingerList([...singerList, ...result.artists]);
+    }
+    setHasMore(result.more);
   };
 
   const renderSingerList = (singerList) => {
@@ -31,16 +50,16 @@ export default function Singer(props) {
   };
 
   useEffect(() => {
-    request.querySingerList({ type: -1, limit: 50 }).then((res) => {
-      setSingerList(res.artists);
-    });
+    querySingerList();
   }, []);
 
   return (
     <div className="singer-wrapper">
-      <List className="singer-list">
-        {!!singerList.length && renderSingerList(singerList)}
-      </List>
+      <PullToRefresh direction="up" onRefresh={querySingerList}>
+        <List className="singer-list">
+          {!!singerList.length && renderSingerList(singerList)}
+        </List>
+      </PullToRefresh>
     </div>
   );
 }
