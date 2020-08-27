@@ -34,3 +34,12 @@ export const queryHomePageBall = (params) => {
 export const queryHomePageAlbum = (params) => {
   return get("/album/newest", params);
 };
+
+// 获取歌单详情
+export const queryPlayListDetail = (params) => {
+  return get("/playlist/detail", params);
+};
+
+export const queryHomeBlockData = (params) => {
+  return get("/homepage/block/page", params);
+};

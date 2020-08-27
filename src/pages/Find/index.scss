@@ -1,4 +1,5 @@
 .find-wrapper {
+  height: calc(100% - 100px);
   .am-carousel-wrap-dot-active > span {
     background: red;
   }

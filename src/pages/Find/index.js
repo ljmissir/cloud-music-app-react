@@ -3,6 +3,7 @@ import request from "../../services/index";
 import "./index.scss";
 import { Carousel, WingBlank, SearchBar } from "antd-mobile";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Find(props) {
   const [bannerList, setBannerList] = useState([]);
@@ -24,7 +25,6 @@ function Find(props) {
 
   // 渲染轮播图
   const renderBanner = (bannerList) => {
-    console.log(111);
     return (
       !!bannerList.length &&
       bannerList.map((banner) => {
@@ -42,10 +42,16 @@ function Find(props) {
     );
   };
 
+  const resolvePath = (tab) => {
+    const lastLine = tab.url.lastIndexOf("/");
+    const path = tab.url.slice(lastLine);
+    return path;
+  };
+
   const renderTabList = (tabList) => {
     return tabList.map((tab) => {
       return (
-        <div className="tab-item" key={tab.id}>
+        <Link className="tab-item" key={tab.id} to={resolvePath(tab)}>
           <div className="img-wrapper">
             {tab.name === "每日推荐" ? (
               <span className="cur-date">{curDate}</span>
@@ -53,7 +59,7 @@ function Find(props) {
             <img src={tab.iconUrl} alt="" />
           </div>
           <p className="name">{tab.name}</p>
-        </div>
+        </Link>
       );
     });
   };
