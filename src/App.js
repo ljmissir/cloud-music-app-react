@@ -11,7 +11,6 @@ function App(props) {
     <div className="App" style={{ height: "100%" }}>
       <audio style={{ display: "none" }} src={songUrl} autoPlay></audio>
       <CloudRoute />
-      {/* <TabBar /> */}
     </div>
   );
 }

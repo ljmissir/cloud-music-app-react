@@ -17,8 +17,9 @@ function Songs(props) {
   const querySong = async (song) => {
     if (!song) return;
     const { id } = song;
-    const result = await request.querySongUrl({ id });
-    dispatch({ type: "SET_CURSONG_URL", songUrl: result.data[0].url });
+    // const result = await request.querySongUrl({ id });
+    const songUrl = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
+    dispatch({ type: "SET_CURSONG_URL", songUrl });
     dispatch({ type: "SET_PLAY_LIST", playList: songList });
   };
 

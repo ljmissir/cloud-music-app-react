@@ -39,4 +39,31 @@
       }
     }
   }
+  .song-list-wrapper {
+    padding: 40px 30px;
+    .song-list-title {
+      padding-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .am-tabs-tab-bar-wrap {
+      display: none;
+    }
+    .am-tabs-pane-wrap {
+      width: 30%;
+      .song-item {
+        margin-right: 30px;
+        .img-wrapper {
+          min-height: 178px;
+          img {
+            border-radius: 10px;
+            width: 100%;
+          }
+        }
+        .name {
+          padding-top: 20px;
+        }
+      }
+    }
+  }
 }

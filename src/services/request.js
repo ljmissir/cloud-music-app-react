@@ -4,7 +4,7 @@ import qs from "qs";
 const Cookies = require("js-cookie");
 
 const service = axios.create({
-  baseURL: "http://localhost:3000" || "http://t-zxweb.lepass.cn",
+  baseURL: "https://api.mtnhao.com",
   timeout: 10000,
 });
 
