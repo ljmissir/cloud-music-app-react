@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Tabs } from "antd-mobile";
+import { Link } from "react-router-dom";
 import request from "../../services";
 
 export default function SongList() {
@@ -14,12 +14,16 @@ export default function SongList() {
     console.log(songList, 123);
     return songList.map((song) => {
       return (
-        <div className="song-item" key={song.picUrl}>
+        <Link
+          className="song-item"
+          key={song.id}
+          to={`/playListDetail/${song.id}`}
+        >
           <div className="img-wrapper">
             <img src={song.picUrl} />
           </div>
           <p className="name">{song.name}</p>
-        </div>
+        </Link>
       );
     });
   };
@@ -32,14 +36,13 @@ export default function SongList() {
     <div className="song-list-wrapper">
       <div className="song-list-title">
         <span>发现好歌单</span>
-        <span>查看更多</span>
+        <Link className="more" to="/more">
+          查看更多
+        </Link>
       </div>
-      <Tabs
-        tabs={songList}
-        renderTabBar={(props) => <Tabs.DefaultTabBar {...props} page={3} />}
-      >
+      <div className="song-content">
         {!!songList.length && renderSongList(songList)}
-      </Tabs>
+      </div>
     </div>
   );
 }

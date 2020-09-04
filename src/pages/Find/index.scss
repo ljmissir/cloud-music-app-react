@@ -42,17 +42,31 @@
   .song-list-wrapper {
     padding: 40px 30px;
     .song-list-title {
-      padding-bottom: 40px;
+      padding-bottom: 30px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      .more {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+      }
     }
     .am-tabs-tab-bar-wrap {
       display: none;
     }
-    .am-tabs-pane-wrap {
-      width: 30%;
+    .song-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
       .song-item {
-        margin-right: 30px;
+        width: 30%;
+        margin-bottom: 30px;
+        margin-right: 34px;
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
         .img-wrapper {
           min-height: 178px;
           img {

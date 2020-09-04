@@ -43,3 +43,13 @@ export const queryPlayListDetail = (params) => {
 export const queryHomeBlockData = (params) => {
   return get("/homepage/block/page", params);
 };
+
+// 获取歌单歌曲
+export const querySongDetail = (params) => {
+  return get("/song/detail", params);
+};
+
+// 获取歌单评论
+export const queryPlayListComment = (params) => {
+  return get("/comment/playlist", params);
+};

@@ -7,7 +7,7 @@ const Loading = () => <Pageing />;
 
 const ErrorDisplay = ({ error }) => <PageError errorMessage={error.message} />;
 
-const meta = { LoadingComponent: Loading, ErrorComponent: ErrorDisplay };
+const meta = { ErrorComponent: ErrorDisplay };
 
 export default [
   // 发现页
@@ -83,5 +83,12 @@ export default [
       ...meta,
     }),
     path: "/user",
+  },
+  // 歌单详情
+  {
+    component: loadable(() => import("../pages/PlayListDetail"), {
+      ...meta,
+    }),
+    path: "/playListDetail/:id",
   },
 ];
