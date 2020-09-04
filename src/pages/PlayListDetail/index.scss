@@ -27,12 +27,14 @@
           margin-right: 30px;
         }
         .description {
-          color: rgb(182, 180, 180);
+          color: rgb(202, 192, 192);
           .name {
             font-size: 30px;
           }
           .nick-name {
             padding: 30px 0;
+            display: flex;
+            align-items: center;
             img {
               width: 50px;
               border-radius: 50%;

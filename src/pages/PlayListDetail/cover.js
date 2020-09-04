@@ -18,7 +18,7 @@ export default function Cover(props) {
 
   return (
     <div className="cover-wrapper">
-      <div className="cover" style={getCoverBg(backgroundUrl)}></div>
+      <div className="cover"></div>
       <div className="cover-content">
         <div className="img-wrapper">
           <img className="img" src={coverImgUrl} alt="" />
