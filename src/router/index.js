@@ -2,16 +2,19 @@ import React from "react";
 import Routes from "./routerConfig";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+const Redirect = Routes.find((route) => route.path === "/find");
+
 export default function CloudRoute() {
   return (
     <Router>
       <Switch>
-        {Routes.map((routeItem) => {
+        <Route path="/" exact when="always" component={Redirect.component} />
+        {Routes.map((route) => {
           return (
             <Route
-              key={routeItem.path}
-              path={routeItem.path}
-              component={routeItem.component}
+              key={route.path}
+              path={route.path}
+              component={route.component}
             />
           );
         })}

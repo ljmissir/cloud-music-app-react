@@ -35,7 +35,7 @@ export default function Banner() {
   }, []);
 
   return (
-    <div>
+    <div className="banner">
       {!!bannerList.length && (
         <WingBlank>
           <Carousel autoplay infinite>
