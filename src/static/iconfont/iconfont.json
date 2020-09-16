@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "141822",
+      "name": "music",
+      "font_class": "music",
+      "unicode": "e7da",
+      "unicode_decimal": 59354
+    },
+    {
+      "icon_id": "5809196",
+      "name": "群聊",
+      "font_class": "qunliao",
+      "unicode": "e690",
+      "unicode_decimal": 59024
+    },
+    {
+      "icon_id": "7235532",
+      "name": "账号",
+      "font_class": "zhanghao",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "9927999",
+      "name": "video",
+      "font_class": "video",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "13743971",
+      "name": "netease",
+      "font_class": "netease",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    }
+  ]
+}

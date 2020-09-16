@@ -91,4 +91,25 @@ export default [
     }),
     path: "/playListDetail/:id",
   },
+  // 云村
+  {
+    component: loadable(() => import("../pages/Cloud"), {
+      ...meta,
+    }),
+    path: "/cloud",
+  },
+  // 账号
+  {
+    component: loadable(() => import("../pages/Account"), {
+      ...meta,
+    }),
+    path: "/account",
+  },
+  // 账号
+  {
+    component: loadable(() => import("../pages/Video"), {
+      ...meta,
+    }),
+    path: "/video",
+  },
 ];

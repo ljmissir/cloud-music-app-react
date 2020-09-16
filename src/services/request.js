@@ -42,7 +42,7 @@ service.interceptors.response.use(
       if (response.status) {
         switch (response.status) {
           case 301:
-            Toast.info(response.data.msg);
+            Toast.info(response.msg);
             break;
           case 403:
             Toast.info("内网访问");
@@ -78,7 +78,7 @@ export function get(url, params) {
         if (res.data.code === 200) {
           resolve(res.data);
         } else {
-          Toast.info(res.data.error_msg);
+          Toast.info(res.data.message);
           reject(res.data);
         }
       })

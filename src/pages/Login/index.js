@@ -3,7 +3,9 @@ import request from "../../services/index";
 import { InputItem, List, Button } from "antd-mobile";
 import { createForm } from "rc-form";
 import { connect } from "react-redux";
+import Storage from "../../utils/storage";
 import "./index.scss";
+
 const Cookies = require("js-cookie");
 
 function Login(props) {
@@ -13,6 +15,7 @@ function Login(props) {
   const Login = () => {
     const params = getFieldsValue();
     request.login(params).then((res) => {
+      Storage.set("user", res);
       Cookies.set("cookie", res.cookie);
       dispatch({ type: "SET_USER", user: res });
       history.push("/find");

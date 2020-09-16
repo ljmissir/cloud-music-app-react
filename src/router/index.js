@@ -1,6 +1,7 @@
 import React from "react";
 import Routes from "./routerConfig";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import TabBar from "../components/TabBar";
 
 const Redirect = Routes.find((route) => route.path === "/find");
 
