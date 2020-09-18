@@ -13,3 +13,8 @@ export const queryMyLikeList = (params) => {
 export const queryUserDetail = (params) => {
   return get("/user/detail", params);
 };
+
+// 获取用户电台
+export const queryUserDj = (params) => {
+  return get("/user/dj", params);
+};
