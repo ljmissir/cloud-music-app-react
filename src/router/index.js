@@ -1,15 +1,18 @@
 import React from "react";
 import Routes from "./routerConfig";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import TabBar from "../components/TabBar";
+import {
+  HashRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
-const Redirect = Routes.find((route) => route.path === "/find");
+const redirect = Routes.find((route) => route.path === "/find");
 
 export default function CloudRoute() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact when="always" component={Redirect.component} />
         {Routes.map((route) => {
           return (
             <Route
@@ -19,6 +22,7 @@ export default function CloudRoute() {
             />
           );
         })}
+        <Redirect to="/login" component={redirect.component} />
       </Switch>
     </Router>
   );

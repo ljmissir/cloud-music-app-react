@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { SearchBar } from "antd-mobile";
 import request from "../../services/index";
+import { withRouter } from "react-router-dom";
 
-export default function Header(props) {
+function Header(props) {
   const [hotSearch, setHotSearch] = useState("");
   // 去搜索页
   const toSearch = () => {
@@ -25,3 +26,5 @@ export default function Header(props) {
     </div>
   );
 }
+
+export default withRouter(Header);

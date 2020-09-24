@@ -1,6 +1,14 @@
 .recommend-wrapper {
   .info {
     font-size: 28px;
+    display: flex;
+    align-items: center;
+    .avatar {
+      width: 100px;
+      height: auto;
+      margin-right: 30px;
+      border-radius: 6px;
+    }
     .singer-info {
       font-size: 24px;
       .singer-name {

@@ -29,12 +29,15 @@ function SongRcmd(props) {
           }}
         >
           <div className="info">
-            <p className="song-name">{song.name}</p>
-            <p className="singer-info">
-              <span className="singer-name">{song.ar[0].name}</span>
-              <span> - </span>
-              <span className="al-name">{song.al.name}</span>
-            </p>
+            <img className="avatar" src={song.al.picUrl} alt="" />
+            <div>
+              <p className="song-name">{song.name}</p>
+              <p className="singer-info">
+                <span className="singer-name">{song.ar[0].name}</span>
+                <span> - </span>
+                <span className="al-name">{song.al.name}</span>
+              </p>
+            </div>
           </div>
         </List.Item>
       );

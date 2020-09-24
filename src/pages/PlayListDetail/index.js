@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import requset from "../../services";
+import request from "../../services";
 import Cover from "./cover";
 import PlayList from "./playList";
 import "./index.scss";
@@ -11,11 +11,11 @@ export default function PlayListDetail(props) {
 
   // 查询歌单详情
   const queryPlayListDetail = async () => {
-    const result = await requset.queryPlayListDetail({ id });
+    const result = await request.queryPlayListDetail({ id });
     const { coverImgUrl, name, description } = result.playlist;
     const { backgroundUrl, nickname, avatarUrl } = result.playlist.creator;
     const ids = result.playlist.trackIds.map((item) => item.id).join(",");
-    querySongDetail(ids);
+    await querySongDetail(ids);
     setCoverProps({
       coverImgUrl,
       name,
@@ -28,14 +28,14 @@ export default function PlayListDetail(props) {
 
   // 获取歌单所有歌曲
   const querySongDetail = async (ids) => {
-    const result = await requset.querySongDetail({ ids });
+    const result = await request.querySongDetail({ ids });
     console.log(result, 234);
     setPlayList(result.songs);
   };
 
   // 获取歌单评论
   const queryComment = async () => {
-    const result = await requset.queryPlayListComment({ id });
+    const result = await request.queryPlayListComment({ id });
     console.log(result, 987);
   };
 
