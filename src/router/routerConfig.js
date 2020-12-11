@@ -102,11 +102,18 @@ export default [
     }),
     path: "/account"
   },
-  // 账号
+  // MV
   {
     component: loadable(() => import("../pages/Video"), {
       ...meta
     }),
     path: "/video"
+  },
+  // 更多
+  {
+    component: loadable(() => import("../pages/More"), {
+      ...meta
+    }),
+    path: "/more"
   }
 ];

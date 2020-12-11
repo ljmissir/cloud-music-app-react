@@ -1,7 +1,7 @@
 const initialState = {
   curSong: {},
   playList: [],
-  curIndex: 0
+  curIndex: null
 };
 
 const songReducer = (state = initialState, action) => {
