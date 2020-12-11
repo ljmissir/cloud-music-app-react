@@ -34,13 +34,10 @@ function PlayList(props) {
   };
 
   // 查询歌曲url
-  const querySong = async (song) => {
-    if (!song) return;
-    const { id } = song;
-    // const result = await request.querySongUrl({ id });
-    const songUrl = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
-    dispatch({ type: "SET_CURSONG_URL", songUrl });
-    dispatch({ type: "SET_PLAY_LIST", playList });
+  const querySong = async (curSong) => {
+    if (!curSong) return;
+    const { id } = curSong;
+    dispatch({ type: "SET_PLAY_LIST", playList, curSongId: id });
   };
 
   return (
@@ -50,4 +47,4 @@ function PlayList(props) {
   );
 }
 
-export default connect()(PlayList);
+export default React.memo(connect()(PlayList));

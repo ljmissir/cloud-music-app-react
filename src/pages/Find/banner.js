@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Carousel, WingBlank } from "antd-mobile";
 import request from "../../services";
 
-export default function Banner() {
+function Banner() {
   const [bannerList, setBannerList] = useState([]);
 
   const queryBannerList = async () => {
@@ -24,6 +24,7 @@ export default function Banner() {
               window.dispatchEvent(new Event("resize"));
             }}
             style={{ width: "100%", verticalAlign: "top" }}
+            alt={banner.imageUrl || ""}
           />
         );
       })
@@ -46,3 +47,5 @@ export default function Banner() {
     </div>
   );
 }
+
+export default React.memo(Banner);

@@ -1,9 +1,6 @@
 import React from "react";
 import loadable from "loadable-components";
-import Pageing from "../components/Pageing";
 import PageError from "../components/PageError";
-
-const Loading = () => <Pageing />;
 
 const ErrorDisplay = ({ error }) => <PageError errorMessage={error.message} />;
 
@@ -13,103 +10,103 @@ export default [
   // 发现页
   {
     component: loadable(() => import("../pages/Find"), { ...meta }),
-    path: "/find",
+    path: "/find"
   },
   // 登录页
   {
     component: loadable(() => import("../pages/Login"), { ...meta }),
-    path: "/login",
+    path: "/login"
   },
   // 搜索页
   {
     component: loadable(() => import("../pages/Search"), { ...meta }),
-    path: "/search",
+    path: "/search"
   },
   // 搜索结果页
   {
     component: loadable(() => import("../pages/SearchResult"), {
-      ...meta,
+      ...meta
     }),
-    path: "/searchResult",
+    path: "/searchResult"
   },
   // 歌手页
   {
     component: loadable(() => import("../pages/Singer"), { ...meta }),
-    path: "/singer",
+    path: "/singer"
   },
   // 歌曲页面
   {
     component: loadable(() => import("../pages/Songs"), { ...meta }),
-    path: "/songs",
+    path: "/songs"
   },
   // 每日推荐
   {
     component: loadable(() => import("../pages/SongRcmd"), {
-      ...meta,
+      ...meta
     }),
-    path: "/songRcmd",
+    path: "/songRcmd"
   },
   // 推荐歌单
   {
     component: loadable(() => import("../pages/PlaylistCollection"), {
-      ...meta,
+      ...meta
     }),
-    path: "/playlistCollection",
+    path: "/playlistCollection"
   },
   // 排行榜
   {
     component: loadable(() => import("../pages/SongRank"), {
-      ...meta,
+      ...meta
     }),
-    path: "/songrank",
+    path: "/songrank"
   },
   // 电台
   {
     component: loadable(() => import("../pages/Djradio"), {
-      ...meta,
+      ...meta
     }),
-    path: "/djradio",
+    path: "/djradio"
   },
   // 私人FM
   {
     component: loadable(() => import("../pages/Privatefm"), {
-      ...meta,
+      ...meta
     }),
-    path: "/privatefm",
+    path: "/privatefm"
   },
   // 我的
   {
     component: loadable(() => import("../pages/User"), {
-      ...meta,
+      ...meta
     }),
-    path: "/user",
+    path: "/user"
   },
   // 歌单详情
   {
     component: loadable(() => import("../pages/PlayListDetail"), {
-      ...meta,
+      ...meta
     }),
-    path: "/playListDetail/:id",
+    path: "/playListDetail/:id"
   },
   // 云村
   {
     component: loadable(() => import("../pages/Cloud"), {
-      ...meta,
+      ...meta
     }),
-    path: "/cloud",
+    path: "/cloud"
   },
   // 账号
   {
     component: loadable(() => import("../pages/Account"), {
-      ...meta,
+      ...meta
     }),
-    path: "/account",
+    path: "/account"
   },
   // 账号
   {
     component: loadable(() => import("../pages/Video"), {
-      ...meta,
+      ...meta
     }),
-    path: "/video",
-  },
+    path: "/video"
+  }
 ];

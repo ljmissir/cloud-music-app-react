@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import request from "../../services";
 import { connect } from "react-redux";
 import Storage from "../../utils/storage";
@@ -16,6 +16,7 @@ function User(props) {
 
   const queryUserDetail = async () => {
     const result = await request.queryUserDetail({ uid: id });
+    console.log(result);
   };
 
   useEffect(() => {

@@ -9,12 +9,10 @@ function SongRcmd(props) {
   const { dispatch } = props;
 
   // 查询歌曲url
-  const querySong = async (song) => {
-    if (!song) return;
-    const { id } = song;
-    const result = await request.querySongUrl({ id });
-    dispatch({ type: "SET_CURSONG_URL", songUrl: result.data[0].url });
-    dispatch({ type: "SET_PLAY_LIST", playList: songList });
+  const querySong = async (curSong) => {
+    if (!curSong) return;
+    const { id } = curSong;
+    dispatch({ type: "SET_PLAY_LIST", playList: songList, curSongId: id });
   };
 
   const renderSongList = (songList) => {

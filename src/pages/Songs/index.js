@@ -11,16 +11,13 @@ function Songs(props) {
   const [offset, setOffset] = useState(0);
   const [hasMore, setHasMore] = useState(true);
   const { id } = utils.getUrlParams(search);
-  const { dispatch } = props;
+  const { dispatch, song } = props;
 
   // 查询歌曲url
-  const querySong = async (song) => {
-    if (!song) return;
-    const { id } = song;
-    // const result = await request.querySongUrl({ id });
-    const songUrl = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
-    dispatch({ type: "SET_CURSONG_URL", songUrl });
-    dispatch({ type: "SET_PLAY_LIST", playList: songList });
+  const querySong = async (curSong) => {
+    if (!curSong) return;
+    const { id } = curSong;
+    dispatch({ type: "SET_PLAY_LIST", playList: songList, curSongId: id });
   };
 
   // 根据歌手id查询歌手歌曲

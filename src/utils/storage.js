@@ -6,4 +6,10 @@ export default {
     const res = JSON.parse(sessionStorage.getItem(key));
     return res;
   },
+  clearItem: function (key) {
+    sessionStorage.clearItem(key);
+  },
+  clearAll: function () {
+    sessionStorage.clear();
+  },
 };

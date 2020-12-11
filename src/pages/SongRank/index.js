@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from "react";
-import request from "../../services";
+import React from "react";
+import Singer from "../../pages/Singer";
 
 export default function SongRank() {
-  useEffect(() => {
-    request.queryTopList().then((res) => {
-      console.log(res);
-    });
-  }, []);
-
-  return <div>排行榜</div>;
+  return <Singer />;
 }

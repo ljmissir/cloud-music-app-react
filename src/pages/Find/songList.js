@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import request from "../../services";
 
-export default function SongList() {
+function SongList() {
   const [songList, setSongList] = useState([]);
 
   const queryRecommendList = async () => {
@@ -11,7 +11,6 @@ export default function SongList() {
   };
 
   const renderSongList = (songList) => {
-    console.log(songList, 123);
     return songList.map((song) => {
       return (
         <Link
@@ -20,7 +19,7 @@ export default function SongList() {
           to={`/playListDetail/${song.id}`}
         >
           <div className="img-wrapper">
-            <img src={song.picUrl} />
+            <img src={song.picUrl} alt="" />
           </div>
           <p className="name">{song.name}</p>
         </Link>
@@ -46,3 +45,5 @@ export default function SongList() {
     </div>
   );
 }
+
+export default React.memo(SongList);

@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import request from "../../services";
 
 export default function PlaylistCollection() {
-  const [playListOrder, setPlayListOrder] = useState([]);
-
   const queryRecommendList = async () => {
     const result = await request.queryRecommend();
     console.log(result, 123);

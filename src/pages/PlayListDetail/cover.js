@@ -1,20 +1,13 @@
 import React from "react";
 
-export default function Cover(props) {
-  const {
-    coverImgUrl,
-    name,
-    description,
-    backgroundUrl,
-    avatarUrl,
-    nickname,
-  } = props;
+function Cover(props) {
+  const { coverImgUrl, name, description, avatarUrl, nickname } = props;
 
-  const getCoverBg = (backgroundUrl) => {
-    return {
-      background: `url(${backgroundUrl})`,
-    };
-  };
+  // const getCoverBg = (backgroundUrl) => {
+  //   return {
+  //     background: `url(${backgroundUrl})`
+  //   };
+  // };
 
   return (
     <div className="cover-wrapper">
@@ -35,3 +28,5 @@ export default function Cover(props) {
     </div>
   );
 }
+
+export default React.memo(Cover);

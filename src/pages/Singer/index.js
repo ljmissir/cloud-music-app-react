@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import request from "../../services";
 import { List, PullToRefresh, Toast } from "antd-mobile";
+import { withRouter } from "react-router-dom";
 import "./index.scss";
 
-export default function Singer(props) {
+function Singer(props) {
   const { history } = props;
   const [singerList, setSingerList] = useState([]);
   const [offset, setOffset] = useState(0);
@@ -23,7 +24,7 @@ export default function Singer(props) {
     const result = await request.querySingerList({
       type: -1,
       limit: 20,
-      offset,
+      offset
     });
     if (!!result.artists.length) {
       setSingerList([...singerList, ...result.artists]);
@@ -63,3 +64,5 @@ export default function Singer(props) {
     </div>
   );
 }
+
+export default withRouter(Singer);

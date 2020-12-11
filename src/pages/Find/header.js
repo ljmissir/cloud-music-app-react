@@ -27,4 +27,4 @@ function Header(props) {
   );
 }
 
-export default withRouter(Header);
+export default React.memo(withRouter(Header));

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import request from "../../services";
 
-export default function Tab() {
+function Tab() {
   const [tabList, setTabList] = useState([]);
   const [curDate, setCurDate] = useState("");
 
@@ -50,3 +50,5 @@ export default function Tab() {
     <div className="tab-list">{!!tabList.length && renderTabList(tabList)}</div>
   );
 }
+
+export default React.memo(Tab);
