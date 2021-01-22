@@ -5,9 +5,8 @@ import TabBar from "./components/TabBar";
 import "./static/iconfont/iconfont.css";
 
 function App(props) {
-  const [showTabBar, setShowTabBar] = useState(true);
   const { dispatch } = props;
-  let { curIndex, playList } = props.song;
+  let { curIndex, playList, showTabBar } = props.song;
 
   const songUrl = useMemo(() => {
     return !!playList.length
@@ -23,11 +22,6 @@ function App(props) {
     }
     dispatch({ type: "SET_CUR_INDEX", curIndex });
   };
-
-  useEffect(() => {
-    const isLogin = window.location.hash.indexOf("login") === -1;
-    setShowTabBar(isLogin);
-  }, [showTabBar]);
 
   return (
     <div className="App" style={{ height: "100%" }}>

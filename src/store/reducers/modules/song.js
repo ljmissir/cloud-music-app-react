@@ -1,7 +1,19 @@
+const playMode = {
+  // 顺序播放
+  sequence: 0,
+  // 随机播放
+  random: 1,
+  // 循环播放
+  loop: 2
+};
+
 const initialState = {
   curSong: {},
   playList: [],
-  curIndex: null
+  curIndex: null,
+  showTabBar: false,
+  // 播放模式
+  mode: playMode.sequence
 };
 
 const songReducer = (state = initialState, action) => {
@@ -18,6 +30,10 @@ const songReducer = (state = initialState, action) => {
       };
     case "SET_CUR_INDEX":
       return { ...state, ...{ curIndex: action.curIndex } };
+    case "SET_MODE":
+      return { ...state, ...{ mode: action.mode } };
+    case "SET_TAB_BAR":
+      return { ...state, ...{ showTabBar: action.showTabBar } };
     default:
       return { ...state };
   }

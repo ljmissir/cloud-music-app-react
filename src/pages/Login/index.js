@@ -18,6 +18,7 @@ function Login(props) {
       Storage.set("user", res);
       Cookies.set("cookie", res.cookie);
       dispatch({ type: "SET_USER", user: res });
+      dispatch({ type: "SET_TAB_BAR", showTabBar: true });
       history.push("/find");
     });
   };
@@ -26,7 +27,7 @@ function Login(props) {
     <div className="login-wrapper">
       <List>
         {getFieldDecorator("email", {
-          initialValue: "ljmissir@163.com",
+          initialValue: "ljmissir@163.com"
         })(<InputItem type="text" placeholder="输入用户名" />)}
         {getFieldDecorator("password")(
           <InputItem type="password" placeholder="输入密码" />
@@ -39,4 +40,4 @@ function Login(props) {
 
 const LoginForm = createForm()(Login);
 
-export default connect(({ user }) => ({ user }))(LoginForm);
+export default connect(({ user, song }) => ({ user, song }))(LoginForm);
